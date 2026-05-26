@@ -51,12 +51,14 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="faq-sec">
-      <div className="stag">Common Questions</div>
-      <h2 className="sh2">
-        Everything dispensary operators
-        <br />
-        <span className="olive">ask before signing</span>
-      </h2>
+      <div className="faq-hdr">
+        <div className="stag">Common Questions</div>
+        <h2 className="sh2">
+          Everything dispensary operators
+          <br />
+          <span className="olive">ask before signing</span>
+        </h2>
+      </div>
       <div className="faq-wrap">
         {qas.map((qa, i) => {
           const open = i === openIndex;

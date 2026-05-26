@@ -28,16 +28,18 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section className="how-sec" id="how">
-      <div className="stag">How It Works</div>
-      <h2 className="sh2">
-        We handle everything
-        <br />
-        <span className="olive">You just earn</span>
-      </h2>
-      <p className="slead">
-        From the first phone call to your monthly commission deposit, not a
-        single operational task lands on your team.
-      </p>
+      <div className="how-hdr">
+        <div className="stag">How It Works</div>
+        <h2 className="sh2">
+          We handle everything
+          <br />
+          <span className="olive">You just earn</span>
+        </h2>
+        <p className="slead">
+          From the first phone call to your monthly commission deposit, not a
+          single operational task lands on your team.
+        </p>
+      </div>
       <div className="steps">
         {steps.map((s) => (
           <div className="step" key={s.n}>

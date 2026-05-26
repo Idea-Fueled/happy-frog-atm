@@ -78,12 +78,14 @@ function renderCell(c: Cell) {
 export default function Comparison() {
   return (
     <section className="cmp-sec">
-      <div className="stag">How We Compare</div>
-      <h2 className="sh2">
-        Happy Frog vs
-        <br />
-        <span className="olive">The Alternatives</span>
-      </h2>
+      <div className="cmp-hdr">
+        <div className="stag">How We Compare</div>
+        <h2 className="sh2">
+          Happy Frog vs
+          <br />
+          <span className="olive">The Alternatives</span>
+        </h2>
+      </div>
       <div style={{ overflowX: 'auto' }}>
         <table className="ctbl">
           <thead>
