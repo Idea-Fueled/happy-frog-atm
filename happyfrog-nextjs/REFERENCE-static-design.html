@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Frog ATM — Free Cannabis-Compliant ATM Placement for Licensed Dispensaries</title>
+<meta name="description" content="Free EMV-ready ATM placement for licensed cannabis dispensaries. We supply, install, stock, and manage the machine — and pay your store a monthly commission on every transaction.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ── PALETTE extracted directly from the Happy Frog logo ── */
+:root{
+  /* Logo black + near-blacks (true #000 from wordmark) */
+  --ink:#000000;            /* logo wordmark black */
+  --ink2:#0F0F0A;           /* near-black with olive undertone */
+  --ink3:#1C1C12;
+
+  /* The iconic ATM olive/chartreuse from the logo */
+  --olive:#708010;          /* logo "ATM" green — primary brand color */
+  --olive2:#8C9E1C;         /* lighter for hover / on-dark */
+  --olive3:#5A6610;         /* darker for muted use */
+  --olivelt:#EDEFCB;        /* tint for backgrounds */
+
+  /* Deep olive-greens from the frog body */
+  --frog:#404000;           /* darkest frog body */
+  --frog2:#606000;           /* mid frog body */
+
+  /* Logo frog red accent (eyes & toes) — use sparingly */
+  --eye:#A02000;
+  --eye-lt:#C63B0F;
+
+  /* Warm off-white from the logo background */
+  --cream:#F0F0E0;
+  --cream2:#E8E8D2;
+  --cream3:#D8D8BE;
+
+  --white:#FFFFFF;
+  --g1:#787866;
+  --g2:#BEBEAC;
+  --g3:#DCDCC8;
+  --body:#3A3A28;           /* body text with olive undertone */
+  --dark:#000000;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── ANNOUNCE BAR ── */
+.announce-bar{background:var(--ink2);text-align:center;padding:10px 1rem;font-size:.85rem;font-weight:500;color:rgba(246,241,228,.85);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.announce-bar .ab-sep{color:rgba(246,241,228,.3)}
+.announce-bar .ab-phone{display:inline-flex;align-items:center;gap:7px;color:var(--olive2);text-decoration:none;font-weight:700;letter-spacing:.3px;transition:color .2s}
+.announce-bar .ab-phone:hover{color:var(--cream)}
+.announce-bar .ab-phone svg{flex-shrink:0}
+@media(max-width:540px){
+  .announce-bar .ab-sep{display:none}
+  .announce-bar{font-size:.78rem;gap:8px}
+}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,4rem);height:76px;border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-logo img{height:46px;width:auto;display:block;border-radius:5px}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{color:rgba(246,241,228,.75);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--cream)}
+.nav-cta{background:var(--olive)!important;color:var(--ink)!important;font-size:.85rem!important;font-weight:700!important;letter-spacing:.3px;text-decoration:none;padding:11px 22px;border-radius:4px;transition:background .2s,transform .15s;white-space:nowrap}
+.nav-cta:hover{background:var(--olive2)!important;transform:translateY(-1px)}
+.nav-phone{display:inline-flex!important;align-items:center;gap:8px;color:var(--olive2)!important;font-size:.88rem!important;font-weight:700!important;letter-spacing:.3px;text-decoration:none!important;padding:8px 14px;border-radius:4px;border:1.5px solid rgba(140,158,28,.4);transition:background .2s,border-color .2s,color .2s;white-space:nowrap}
+.nav-phone:hover{background:rgba(140,158,28,.1);border-color:var(--olive2);color:var(--cream)!important}
+.nav-phone svg{flex-shrink:0}
+
+/* ── HERO ── */
+.hero{background:var(--white);position:relative;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr;min-height:auto;border-bottom:1px solid var(--g3)}
+.hbg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px);background-size:60px 60px}
+.hglow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(112,128,16,.09) 0%,transparent 70%);top:-200px;left:-100px;pointer-events:none}
+.hero-left{padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,5vw,4rem);display:flex;flex-direction:column;justify-content:flex-start;position:relative;z-index:1}
+.sbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(112,128,16,.1);border:1px solid rgba(112,128,16,.3);color:var(--olive3);font-size:.74rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 14px;border-radius:3px;width:fit-content;margin-bottom:1.6rem}
+.sdot{width:7px;height:7px;border-radius:50%;background:var(--olive);flex-shrink:0;box-shadow:0 0 8px rgba(112,128,16,.5)}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.8rem,5.8vw,5.2rem);font-weight:900;line-height:.96;text-transform:uppercase;letter-spacing:-.5px;color:var(--ink);margin-bottom:1.5rem}
+.hero h1 .olive{color:var(--olive)}
+.hsub{font-size:clamp(.95rem,1.5vw,1.05rem);color:#444;line-height:1.75;max-width:520px;margin-bottom:1.8rem;font-weight:400}
+.hsub strong{color:var(--ink);font-weight:600}
+.hactions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2.2rem;align-items:center}
+.btn-p{background:var(--olive);color:var(--ink);font-size:.95rem;font-weight:700;letter-spacing:.3px;text-decoration:none;padding:15px 30px;border-radius:4px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .15s;white-space:nowrap}
+.btn-p:hover{background:var(--olive2);transform:translateY(-1px)}
+.btn-o{background:transparent;color:var(--ink);font-size:.95rem;font-weight:500;text-decoration:none;padding:15px 24px;border-radius:4px;border:1.5px solid rgba(0,0,0,.2);display:inline-flex;align-items:center;gap:9px;transition:border-color .2s,color .2s}
+.btn-o svg{flex-shrink:0}
+.btn-o:hover{border-color:var(--olive);color:var(--olive3)}
+.btn-link{background:transparent;color:#666;font-size:.92rem;font-weight:500;text-decoration:none;padding:15px 4px;display:inline-flex;align-items:center;gap:6px;transition:color .2s;border-bottom:1px solid transparent}
+.btn-link:hover{color:var(--olive3);border-bottom-color:var(--olive3)}
+.hrisk{display:flex;align-items:flex-start;gap:10px;font-size:.8rem;color:#666}
+.hrisk span{line-height:1.55}
+.hero-right{display:flex;align-items:flex-start;justify-content:center;padding:2.5rem 2rem 2.5rem 0;position:relative;z-index:1}
+
+/* ── HERO CARD (right side) ── */
+.pcard{background:var(--cream);border-radius:8px;width:100%;max-width:380px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45),0 0 0 1px rgba(138,162,61,.18)}
+.pcard-hdr{background:var(--ink);padding:1.25rem 1.75rem;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--olive)}
+.pch-title{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:800;text-transform:uppercase;color:var(--cream);letter-spacing:1px}
+.pch-badge{font-family:'Inter',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--olive2)}
+.pcard-body{padding:1.75rem}
+.pmain{display:flex;align-items:baseline;gap:6px;margin-bottom:.4rem}
+.pdollar{font-size:1.6rem;font-weight:700;color:var(--ink);line-height:1;margin-top:8px}
+.pnum{font-family:'Barlow Condensed',sans-serif;font-size:5rem;font-weight:900;color:var(--ink);line-height:1}
+.psub{font-size:.84rem;color:var(--body);margin-bottom:1.3rem;line-height:1.55}
+.psub strong{color:var(--ink);font-weight:600}
+.prows{margin-bottom:1.25rem;border-top:1px solid var(--g3);padding-top:.5rem}
+.pr{display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:.87rem;border-bottom:1px solid var(--g3)}
+.pr:last-child{border-bottom:none}
+.prl{color:var(--body)}
+.prv{font-weight:600;color:var(--ink)}
+.prv.hot{color:var(--frog)}
+.ccta{width:100%;text-align:center;background:var(--ink);color:var(--cream);font-size:.95rem;font-weight:700;padding:14px;border:none;border-radius:4px;cursor:pointer;text-decoration:none;display:block;transition:background .2s}
+.ccta:hover{background:var(--frog)}
+.cnote{text-align:center;font-size:.74rem;color:var(--body);margin-top:10px}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:var(--ink2);border-bottom:1px solid rgba(255,255,255,.06);padding:1.1rem clamp(1.5rem,5vw,4rem);display:flex;align-items:center;justify-content:center;gap:clamp(1.5rem,4vw,3rem);flex-wrap:wrap}
+.ti{display:flex;align-items:center;gap:8px;font-size:.76rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(246,241,228,.75)}
+.tck{width:18px;height:18px;border-radius:50%;background:rgba(138,162,61,.18);display:flex;align-items:center;justify-content:center;color:var(--olive2);font-size:.7rem;flex-shrink:0}
+
+/* ── SECTION BASE ── */
+section{padding:clamp(3rem,5.5vw,4.5rem) clamp(1.5rem,5vw,4rem)}
+.stag{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--olive3);margin-bottom:.8rem}
+.stag::before{content:'';display:block;width:20px;height:2px;background:var(--olive3)}
+.sh2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.4rem,5vw,4.2rem);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.5px;color:var(--ink);margin-bottom:1rem}
+.sh2 .olive{color:var(--olive3)}
+.slead{font-size:clamp(.95rem,1.4vw,1.05rem);color:var(--body);line-height:1.78;max-width:600px;font-weight:400}
+
+/* ── STATS ── */
+.stats-sec{background:var(--cream);border-top:1px solid var(--g3);border-bottom:1px solid var(--g3);padding:clamp(3rem,5vw,4rem) clamp(1.5rem,5vw,4rem)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1200px;margin:0 auto}
+.statc{padding:.5rem 1.75rem;border-left:1px solid var(--g3)}
+.statc:first-child{border-left:none;padding-left:0}
+.statn{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.8rem,4.5vw,3.8rem);font-weight:900;color:var(--frog);line-height:1;margin-bottom:.4rem}
+.statn .unit{font-size:.5em;color:var(--olive3);margin-left:2px}
+.statl{font-size:.82rem;color:var(--body);line-height:1.5}
+.stats-foot{max-width:1200px;margin:1.5rem auto 0;font-size:.72rem;color:var(--g1);letter-spacing:.5px;text-transform:uppercase;font-weight:500}
+
+/* ── WHAT YOU GET ── */
+.what-sec{background:var(--white)}
+.what-hdr{margin-bottom:3rem;max-width:720px}
+.what-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;background:var(--g3);border:1px solid var(--g3);border-radius:8px;overflow:hidden}
+.wc{background:var(--white);padding:2rem 1.75rem;position:relative;transition:background .2s}
+.wc:hover{background:var(--olivelt)}
+.wnum{font-family:'Barlow Condensed',sans-serif;font-size:3.5rem;font-weight:900;line-height:1;color:var(--g3);position:absolute;top:1rem;right:1.25rem}
+.wico{width:42px;height:42px;background:var(--olivelt);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:.9rem;color:var(--olive3);font-weight:700}
+.wc h3{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.5rem}
+.wc p{font-size:.86rem;color:var(--body);line-height:1.65;font-weight:400}
+
+/* ── HOW IT WORKS ── */
+.how-sec{background:var(--ink)}
+.how-sec .stag{color:var(--olive2)}
+.how-sec .stag::before{background:var(--olive2)}
+.how-sec .sh2{color:var(--cream)}
+.how-sec .sh2 .olive{color:var(--olive2)}
+.how-sec .slead{color:rgba(246,241,228,.65);margin-bottom:2rem}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:rgba(255,255,255,.04);border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.step{padding:2.25rem 1.75rem;background:var(--ink2);border-right:1px solid rgba(255,255,255,.06);position:relative}
+.step:last-child{border-right:none}
+.snum{font-family:'Barlow Condensed',sans-serif;font-size:5rem;font-weight:900;line-height:1;color:var(--olive2);margin-bottom:.8rem;letter-spacing:-.02em}
+.step h3{font-size:1.05rem;font-weight:800;color:var(--cream);margin-bottom:.5rem}
+.step p{font-size:.85rem;color:rgba(246,241,228,.68);line-height:1.65;font-weight:400}
+
+/* ── EQUIPMENT ── */
+.eq-sec{background:var(--cream)}
+.eq-hdr{max-width:760px;margin:0 auto 2.5rem;text-align:center}
+.eq-hdr .stag{justify-content:center}
+.eq-hdr .stag::before{display:none}
+.eq-hdr .slead{margin:1rem auto 0;max-width:600px}
+.eq-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1000px;margin:0 auto;background:var(--g3);border:1px solid var(--g3);border-radius:8px;overflow:hidden}
+.eq-list li{padding:1.75rem 1.75rem;background:var(--white);display:flex;gap:1.25rem;align-items:flex-start;transition:background .2s}
+.eq-list li:hover{background:var(--olivelt)}
+.eq-num{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:900;color:var(--olive3);flex-shrink:0;line-height:1;min-width:36px;padding-top:2px}
+.eq-list h4{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.35rem}
+.eq-list p{font-size:.87rem;color:var(--body);line-height:1.6}
+@media(max-width:780px){
+  .eq-list{grid-template-columns:1fr}
+}
+
+/* ── COMPARISON ── */
+.cmp-sec{background:var(--ink)}
+.cmp-sec .stag{color:var(--olive2)}
+.cmp-sec .stag::before{background:var(--olive2)}
+.cmp-sec .sh2{color:var(--cream);margin-bottom:2rem}
+.cmp-sec .sh2 .olive{color:var(--olive2)}
+.ctbl{width:100%;border-collapse:collapse;font-size:.88rem}
+.ctbl th{padding:1rem 1.25rem;font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-bottom:2px solid rgba(255,255,255,.1);text-align:left}
+.ctbl th.cu{background:rgba(138,162,61,.18);color:var(--olive2)}
+.ctbl th.co,.ctbl th.cf{color:rgba(246,241,228,.6)}
+.ctbl td{padding:.95rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(246,241,228,.65)}
+.ctbl td.cu{background:rgba(138,162,61,.06);color:rgba(246,241,228,.9)}
+.ctbl tr:hover td{background:rgba(255,255,255,.03)}
+.ctbl tr:hover td.cu{background:rgba(138,162,61,.12)}
+.yes{color:var(--olive2);font-weight:700}
+.no{color:rgba(246,241,228,.3)}
+.maybe{color:#D9B547}
+
+/* ── FAQ ── */
+.faq-sec{background:var(--white)}
+.faq-wrap{max-width:820px;margin-top:2.5rem}
+.faqitem{background:var(--cream);border-radius:4px;margin-bottom:6px;border:1px solid var(--g3);overflow:hidden}
+.faqq{width:100%;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.4rem;font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;color:var(--ink);text-align:left;gap:1rem}
+.faqicon{width:22px;height:22px;border-radius:50%;background:var(--olivelt);color:var(--olive3);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;transition:transform .2s,background .2s,color .2s;font-weight:300}
+.faqitem.open .faqicon{transform:rotate(45deg);background:var(--olive);color:var(--ink)}
+.faqa{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 1.4rem;font-size:.88rem;color:var(--body);line-height:1.75;font-weight:400}
+.faqitem.open .faqa{max-height:360px;padding-bottom:1.2rem}
+
+/* ── FINAL CTA ── */
+.final-sec{background:var(--ink);padding:clamp(3rem,5.5vw,4.5rem) clamp(1.5rem,5vw,4rem);text-align:center;position:relative;overflow:hidden}
+.final-sec::before{content:'HAPPY FROG';position:absolute;font-family:'Barlow Condensed',sans-serif;font-size:clamp(5rem,15vw,13rem);font-weight:900;color:rgba(255,255,255,.025);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;letter-spacing:6px}
+.final-sec .stag{justify-content:center;color:var(--olive2)}
+.final-sec .stag::before{background:var(--olive2)}
+.final-sec .sh2{color:var(--cream);max-width:720px;margin:0 auto .8rem;position:relative;z-index:1}
+.final-sec .sh2 .olive{color:var(--olive2)}
+.final-sec .slead{color:rgba(246,241,228,.7);margin:0 auto 1.6rem;max-width:520px;position:relative;z-index:1}
+.factions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+
+/* ── CONTACT FORM ── */
+.form-sec{background:var(--cream)}
+.fwrap{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start;max-width:1200px;margin:0 auto}
+.form-left .slead{margin-bottom:2rem}
+.fperks{list-style:none;margin-bottom:0}
+.fperks li{display:flex;align-items:center;gap:12px;font-size:.92rem;color:var(--ink);padding:10px 0;border-bottom:1px solid var(--g3)}
+.fperks li::before{content:'';width:18px;height:18px;border-radius:50%;background:var(--olive);flex-shrink:0;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A0A08' stroke-width='3'><polyline points='20 6 9 17 4 12'/></svg>");background-size:11px 11px;background-position:center;background-repeat:no-repeat}
+.cform{background:var(--white);border-radius:8px;border:1px solid var(--g3);padding:2rem;display:flex;flex-direction:column;gap:14px;box-shadow:0 4px 24px rgba(10,10,8,.05)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ff{display:flex;flex-direction:column;gap:5px}
+.ff label{font-size:.74rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--body)}
+.ff input,.ff select,.ff textarea{background:var(--cream);border:1.5px solid var(--g3);border-radius:4px;padding:11px 14px;font-family:'Inter',sans-serif;font-size:.93rem;color:var(--ink);outline:none;transition:border-color .2s,background .2s;width:100%}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:var(--olive);background:var(--white)}
+.ff textarea{resize:vertical;min-height:90px}
+.subbtn{background:var(--ink);color:var(--cream);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;padding:15px 30px;border:none;border-radius:4px;cursor:pointer;transition:background .2s,transform .15s;width:100%;letter-spacing:.2px}
+.subbtn:hover{background:var(--frog);transform:translateY(-1px)}
+.subnote{font-size:.74rem;color:var(--body);margin-top:4px;text-align:center}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);padding:3rem clamp(1.5rem,5vw,4rem) 1.5rem}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.08);max-width:1200px;margin:0 auto}
+.foot-brand img{height:50px;width:auto;margin-bottom:1rem}
+.foot-brand p{font-size:.85rem;color:rgba(246,241,228,.55);line-height:1.65;margin-bottom:1rem;max-width:300px}
+.foot-contact a{display:block;font-size:.85rem;color:var(--cream);text-decoration:none;margin-bottom:6px}
+.foot-contact a:hover{color:var(--olive2)}
+.foot-phone{display:inline-flex!important;align-items:center;gap:10px;font-size:1.1rem!important;font-weight:700;color:var(--olive2)!important;letter-spacing:.3px;padding:8px 0;margin-bottom:8px!important}
+.foot-phone:hover{color:var(--cream)!important}
+.foot-phone svg{flex-shrink:0;color:var(--olive2)}
+.foot-col h4{font-size:.74rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--olive2);margin-bottom:1rem}
+.foot-col ul{list-style:none}
+.foot-col li{padding:5px 0}
+.foot-col a{font-size:.85rem;color:rgba(246,241,228,.6);text-decoration:none;transition:color .2s}
+.foot-col a:hover{color:var(--cream)}
+.foot-bot{max-width:1200px;margin:1.5rem auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.78rem;color:rgba(246,241,228,.4)}
+.foot-bot a{color:rgba(246,241,228,.5);text-decoration:none;margin-left:1.5rem}
+.foot-bot a:hover{color:var(--olive2)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  .fwrap{grid-template-columns:1fr;gap:3rem}
+}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-right{padding:0 1.5rem 3.5rem;justify-content:flex-start}
+  .pcard{max-width:100%}
+  .steps{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:1.5rem 0}
+  .statc{padding:.5rem 1.25rem}
+  .statc:nth-child(3){border-left:none;padding-left:0}
+  .frow{grid-template-columns:1fr}
+  .nav-links a:not(.nav-cta):not(.nav-phone){display:none}
+  .nav-phone-num{display:none}
+  .nav-phone{padding:10px 12px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:2rem}
+  .foot-brand{grid-column:1/-1}
+}
+@media(max-width:600px){
+  .steps{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr;gap:1.5rem}
+  .statc{border-left:none;padding-left:0!important}
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ── ANNOUNCE ── -->
+<div class="announce-bar">
+  <span>Free ATM consultation for licensed cannabis dispensaries</span>
+  <span class="ab-sep">·</span>
+  <a href="tel:8338188778" class="ab-phone">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call (833) 818-8778
+  </a>
+</div>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo"><img src="assets/logo.png" alt="Happy Frog ATM"></div>
+  <div class="nav-links">
+    <a href="#how">How It Works</a>
+    <a href="#included">What's Included</a>
+    <a href="#equipment">Equipment</a>
+    <a href="#faq">FAQ</a>
+    <a href="tel:8338188778" class="nav-phone" aria-label="Call (833) 818-8778">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="nav-phone-num">(833) 818-8778</span>
+    </a>
+    <a href="#contact" class="nav-cta">Get a Free ATM →</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hbg"></div><div class="hglow"></div>
+  <div class="hero-left">
+    <div class="sbadge"><div class="sdot"></div>Cannabis-Compliant ATM Placement</div>
+    <h1>Free ATMs<br>For Licensed<br><span class="olive">Cannabis Dispensaries</span></h1>
+    <p class="hsub">We supply, install, and fully manage EMV-ready ATMs at zero cost to your store — and pay you a <strong>monthly commission</strong> on every cash withdrawal. Compliant banking, real hardware, and no operational work on your end.</p>
+    <div class="hactions">
+      <a href="#contact" class="btn-p">Request Your Free ATM →</a>
+      <a href="SCHEDULE_URL" class="btn-o" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Schedule a Call
+      </a>
+      <a href="#how" class="btn-link">See How It Works →</a>
+    </div>
+    <div class="hrisk">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5A6610" stroke-width="2.5" style="flex-shrink:0;margin-top:2px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>No equipment cost · No credit check · Live within 10–14 business days · You keep the floor space, we handle the rest</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="pcard">
+      <div class="pcard-hdr">
+        <div class="pch-title">Your Investment</div>
+        <div class="pch-badge">Zero Cost</div>
+      </div>
+      <div class="pcard-body">
+        <div class="pmain"><div class="pdollar">$</div><div class="pnum">0</div></div>
+        <p class="psub">Equipment, install, cash loading, monitoring, and repairs — all included. <strong>You earn a commission on every transaction.</strong></p>
+        <div class="prows">
+          <div class="pr"><span class="prl">ATM equipment</span><span class="prv">$0</span></div>
+          <div class="pr"><span class="prl">Installation</span><span class="prv">$0</span></div>
+          <div class="pr"><span class="prl">Cash management</span><span class="prv">$0</span></div>
+          <div class="pr"><span class="prl">Maintenance &amp; service</span><span class="prv">$0</span></div>
+          <div class="pr"><span class="prl">Monthly commission</span><span class="prv hot">Paid to you</span></div>
+        </div>
+        <a href="#contact" class="ccta">Request ATM Installation →</a>
+        <p class="cnote">Response within 1 business day · No obligation</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST BAR ── -->
+<div class="trust-bar">
+  <div class="ti"><div class="tck">✓</div> Nationwide Coverage</div>
+  <div class="ti"><div class="tck">✓</div> Cannabis-Compliant Banking</div>
+  <div class="ti"><div class="tck">✓</div> EMV-Certified Hardware</div>
+  <div class="ti"><div class="tck">✓</div> Cash Loading Included</div>
+  <div class="ti"><div class="tck">✓</div> Fully Insured Equipment</div>
+</div>
+
+<!-- ── STATS ── -->
+<section class="stats-sec">
+  <div class="stats-grid">
+    <div class="statc">
+      <div class="statn">+20<span class="unit">%</span></div>
+      <div class="statl">More spent on average by customers who use an in-store ATM</div>
+    </div>
+    <div class="statc">
+      <div class="statn">10<span class="unit">%</span></div>
+      <div class="statl">Of customers who leave to find cash never return to complete the purchase</div>
+    </div>
+    <div class="statc">
+      <div class="statn">80<span class="unit">%</span></div>
+      <div class="statl">Of U.S. adults regularly carry and use an ATM card</div>
+    </div>
+    <div class="statc">
+      <div class="statn">+8<span class="unit">%</span></div>
+      <div class="statl">Average sales lift reported by dispensaries after on-site ATM placement</div>
+    </div>
+  </div>
+  <p class="stats-foot">Industry estimates — actual results vary by location, foot traffic, and product mix.</p>
+</section>
+
+<!-- ── WHAT YOU GET ── -->
+<section class="what-sec" id="included">
+  <div class="what-hdr">
+    <div class="stag">What's Included</div>
+    <h2 class="sh2">Six things you get<br><span class="olive">at zero cost</span></h2>
+    <p class="slead" style="margin-top:1rem">We're a full-service partner, not just an equipment supplier. Here is exactly what is covered from day one — no upsells, no surprise invoices.</p>
+  </div>
+  <div class="what-grid">
+    <div class="wc">
+      <div class="wnum">01</div>
+      <div class="wico">⬛</div>
+      <h3>Free ATM Placement</h3>
+      <p>We supply, deliver, and professionally install an EMV-ready ATM. No equipment purchase, no installation fee, no deposit of any kind.</p>
+    </div>
+    <div class="wc">
+      <div class="wnum">02</div>
+      <div class="wico">$</div>
+      <h3>Monthly Commission</h3>
+      <p>Your dispensary earns a commission on every withdrawal. Paid monthly with a clear statement — no invoicing, no chasing required.</p>
+    </div>
+    <div class="wc">
+      <div class="wnum">03</div>
+      <div class="wico">✓</div>
+      <h3>Cannabis-Compliant Banking</h3>
+      <p>We work exclusively with banking and processing partners approved for cannabis transactions. No grey areas, no mid-month shutdowns.</p>
+    </div>
+    <div class="wc">
+      <div class="wnum">04</div>
+      <div class="wico">⊙</div>
+      <h3>Full Cash Management</h3>
+      <p>Loading and replenishment run on a proactive schedule managed by our team. Your staff never needs to think about the ATM after install day.</p>
+    </div>
+    <div class="wc">
+      <div class="wnum">05</div>
+      <div class="wico">◉</div>
+      <h3>24/7 Remote Monitoring</h3>
+      <p>Every machine is monitored remotely. We spot issues before they become outages and dispatch on-site service quickly when needed.</p>
+    </div>
+    <div class="wc">
+      <div class="wnum">06</div>
+      <div class="wico">▣</div>
+      <h3>Fully Insured Equipment</h3>
+      <p>The ATM and the cash inside it are covered by our insurance. Your store remains responsible only for standard premises security.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="how-sec" id="how">
+  <div class="stag">How It Works</div>
+  <h2 class="sh2">We handle everything<br><span class="olive">You just earn</span></h2>
+  <p class="slead">From the first phone call to your monthly commission deposit, not a single operational task lands on your team.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="snum">01</div>
+      <h3>Free Placement</h3>
+      <p>We confirm your license, ship the ATM, and professionally install it on-site with cannabis-compliant banking already in place.</p>
+    </div>
+    <div class="step">
+      <div class="snum">02</div>
+      <h3>Always Stocked</h3>
+      <p>Our team monitors cash levels remotely and refills the machine before it runs low — ahead of your busiest hours, not after.</p>
+    </div>
+    <div class="step">
+      <div class="snum">03</div>
+      <h3>Fixed Fast</h3>
+      <p>24/7 monitoring catches issues before your customers do. On-site service follows within hours, not days. You don't make the call — we already know.</p>
+    </div>
+    <div class="step">
+      <div class="snum">04</div>
+      <h3>You Get Paid</h3>
+      <p>A commission on every cash withdrawal is deposited monthly with a clean statement. No invoicing, no follow-up, no effort.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── EQUIPMENT ── -->
+<section class="eq-sec" id="equipment">
+  <div class="eq-hdr">
+    <div class="stag">The Equipment</div>
+    <h2 class="sh2">Industry-grade ATMs<br><span class="olive">Sized to your traffic</span></h2>
+    <p class="slead">We match the right machine to your dispensary's volume so the cash cassette never runs dry on your busiest day. All machines are EMV-certified and sourced from the same manufacturers used by major financial institutions nationwide.</p>
+  </div>
+  <ul class="eq-list">
+    <li>
+      <div class="eq-num">01</div>
+      <div><h4>EMV chip-compliant</h4><p>Every machine meets current EMV security standards. Customers use chip cards, PIN debit, and standard ATM cards without friction.</p></div>
+    </li>
+    <li>
+      <div class="eq-num">02</div>
+      <div><h4>Trusted hardware brands</h4><p>We source from Genmega, Hyosung, and Nautilus — the same manufacturers used by major financial institutions nationwide.</p></div>
+    </li>
+    <li>
+      <div class="eq-num">03</div>
+      <div><h4>Sized to your volume</h4><p>We assess your foot traffic before placement and select a cassette capacity that holds for your busiest days, not just your average ones.</p></div>
+    </li>
+    <li>
+      <div class="eq-num">04</div>
+      <div><h4>Live in 10–14 business days</h4><p>Once paperwork is signed, the ATM ships immediately. Most dispensaries are processing transactions within two weeks of signing.</p></div>
+    </li>
+  </ul>
+</section>
+
+<!-- ── COMPARISON TABLE ── -->
+<section class="cmp-sec">
+  <div class="stag">How We Compare</div>
+  <h2 class="sh2">Happy Frog vs<br><span class="olive">The Alternatives</span></h2>
+  <div style="overflow-x:auto">
+    <table class="ctbl">
+      <thead><tr>
+        <th class="cf" style="width:32%">Feature</th>
+        <th class="cu" style="width:19%">Happy Frog ATM</th>
+        <th class="co" style="width:17%">Standard ATM Operator</th>
+        <th class="co" style="width:16%">Buy Your Own ATM</th>
+        <th class="co" style="width:16%">No ATM On-Site</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="cf">Cannabis-compliant banking</td><td class="cu"><span class="yes">✓ Yes</span></td><td><span class="no">✗ Rarely</span></td><td><span class="maybe">~ You arrange</span></td><td><span class="no">N/A</span></td></tr>
+        <tr><td class="cf">Equipment cost to your store</td><td class="cu"><span class="yes">✓ $0</span></td><td><span class="maybe">~ Varies</span></td><td><span class="no">$3K–$5K upfront</span></td><td><span class="no">N/A</span></td></tr>
+        <tr><td class="cf">Cash loading &amp; replenishment</td><td class="cu"><span class="yes">✓ Included</span></td><td><span class="maybe">~ Sometimes</span></td><td><span class="no">✗ Your staff</span></td><td><span class="no">N/A</span></td></tr>
+        <tr><td class="cf">Monthly commission paid to store</td><td class="cu"><span class="yes">✓ Yes</span></td><td><span class="no">✗ Rarely</span></td><td><span class="yes">✓ You keep it all</span></td><td><span class="no">$0</span></td></tr>
+        <tr><td class="cf">24/7 monitoring &amp; rapid service</td><td class="cu"><span class="yes">✓ Yes</span></td><td><span class="maybe">~ Limited</span></td><td><span class="no">✗ You handle it</span></td><td><span class="no">N/A</span></td></tr>
+        <tr><td class="cf">Risk of mid-month shutdown</td><td class="cu"><span class="yes">✓ None</span></td><td><span class="no">✗ Common</span></td><td><span class="maybe">~ Depends</span></td><td><span class="no">N/A</span></td></tr>
+        <tr><td class="cf">Cash &amp; equipment insured</td><td class="cu"><span class="yes">✓ Yes</span></td><td><span class="maybe">~ Varies</span></td><td><span class="no">✗ Your policy</span></td><td><span class="no">N/A</span></td></tr>
+        <tr><td class="cf">Customers who walk out for cash</td><td class="cu"><span class="yes">✓ Eliminated</span></td><td><span class="yes">✓ Eliminated</span></td><td><span class="yes">✓ Eliminated</span></td><td><span class="no">✗ Frequent</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq" class="faq-sec">
+  <div class="stag">Common Questions</div>
+  <h2 class="sh2">Everything dispensary operators<br><span class="olive">ask before signing</span></h2>
+  <div class="faq-wrap">
+    <div class="faqitem open"><button class="faqq" onclick="tFaq(this)">Does the ATM really cost nothing?<div class="faqicon">+</div></button><div class="faqa">Yes. The ATM is provided free of charge once your placement agreement is signed. There is no equipment purchase, no installation fee, and no monthly bill. We generate revenue from the surcharge customers pay on each withdrawal, and we share a portion of that with your dispensary as a monthly commission.</div></div>
+    <div class="faqitem"><button class="faqq" onclick="tFaq(this)">How long does setup actually take?<div class="faqicon">+</div></button><div class="faqa">Most licensed dispensaries are live within 10 to 14 business days from signing. That window includes shipping, professional installation, bank-side enrollment, and a brief on-site test run. We coordinate everything around your store hours.</div></div>
+    <div class="faqitem"><button class="faqq" onclick="tFaq(this)">Is your ATM service truly cannabis-compliant?<div class="faqicon">+</div></button><div class="faqa">Yes. We work exclusively with banking and processing partners that are fully approved for cannabis-related ATM placements. We do not place machines through general-purpose processors that could shut down your transactions mid-month.</div></div>
+    <div class="faqitem"><button class="faqq" onclick="tFaq(this)">How much will my dispensary actually earn each month?<div class="faqicon">+</div></button><div class="faqa">Commission depends on your transaction volume, which is driven by foot traffic and average ticket size. We'll quote you a specific commission rate after a quick review of your location. Call us at (833) 818-8778 for an estimate.</div></div>
+    <div class="faqitem"><button class="faqq" onclick="tFaq(this)">My bank shut down a previous ATM at my store. Will yours work?<div class="faqicon">+</div></button><div class="faqa">Almost certainly yes. The shutdowns you've seen typically come from processors that aren't cannabis-approved. Our processing relationships are built specifically for licensed cannabis retail, so a prior shutdown at your store is not a disqualifier.</div></div>
+    <div class="faqitem"><button class="faqq" onclick="tFaq(this)">Where do you place ATMs?<div class="faqicon">+</div></button><div class="faqa">We place cannabis-compliant ATMs in licensed dispensaries nationwide. If your state has legal cannabis retail, we can almost certainly serve you. Call (833) 818-8778 and we'll confirm coverage for your specific market and dispensary location.</div></div>
+    <div class="faqitem"><button class="faqq" onclick="tFaq(this)">Who is responsible if the ATM is broken into?<div class="faqicon">+</div></button><div class="faqa">We are. Both the ATM hardware and the cash inside it are covered by our insurance. Your dispensary remains responsible only for the standard physical security of the premises — the same security you already provide.</div></div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final-sec">
+  <div class="stag">Ready to Get Started</div>
+  <h2 class="sh2">Put a free, compliant ATM<br><span class="olive">in your dispensary</span></h2>
+  <p class="slead">Fill out the form below or call us directly. We'll confirm your location qualifies and walk you through the placement process. No obligation.</p>
+  <div class="factions">
+    <a href="#contact" class="btn-p">Request Free Placement →</a>
+    <a href="SCHEDULE_URL" class="btn-o" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Schedule a Call
+    </a>
+    <a href="tel:8338188778" class="btn-o">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call (833) 818-8778
+    </a>
+  </div>
+</section>
+
+<!-- ── CONTACT FORM ── -->
+<section id="contact" class="form-sec">
+  <div class="fwrap">
+    <div class="form-left">
+      <div class="stag">Get Started</div>
+      <h2 class="sh2">Order your<br><span class="olive">free ATM</span></h2>
+      <p class="slead">Fill out the short form and we'll confirm your dispensary qualifies for free placement, then schedule a brief call to walk through the next steps.</p>
+      <ul class="fperks">
+        <li>Location qualified within 1 business day</li>
+        <li>Free walkthrough of the placement process</li>
+        <li>Compliant banking confirmed before install</li>
+        <li>No equipment cost, no monthly bill</li>
+        <li>Live and processing transactions in 10–14 days</li>
+      </ul>
+    </div>
+    <form class="cform" onsubmit="hSubmit(event)">
+      <div class="frow">
+        <div class="ff"><label>First Name</label><input type="text" required></div>
+        <div class="ff"><label>Last Name</label><input type="text" required></div>
+      </div>
+      <div class="ff"><label>Dispensary Name</label><input type="text" required></div>
+      <div class="frow">
+        <div class="ff"><label>Phone Number</label><input type="tel" required></div>
+        <div class="ff"><label>Email Address</label><input type="email" required></div>
+      </div>
+      <div class="ff"><label>Dispensary Address (City + State)</label><input type="text" required></div>
+      <div class="ff"><label>License Status</label>
+        <select required>
+          <option value="">Select your status...</option>
+          <option>Licensed and operational</option>
+          <option>License approved, pre-opening</option>
+          <option>License application in progress</option>
+          <option>Other / not sure</option>
+        </select>
+      </div>
+      <div class="ff"><label>Anything we should know? (optional)</label><textarea ></textarea></div>
+      <button type="submit" class="subbtn">Request Free ATM Placement →</button>
+      <div class="subnote">Your information stays private — no spam, ever. Response within 1 business day.</div>
+    </form>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <img src="assets/logo.png" alt="Happy Frog ATM" style="border-radius:5px">
+      <p>Free, fully managed ATM placement for licensed cannabis dispensaries. Compliant banking, monthly commissions, zero hassle.</p>
+      <div class="foot-contact">
+        <a href="tel:8338188778" class="foot-phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (833) 818-8778
+        </a>
+        <a href="mailto:kmckinley@happyfrogatm.com">kmckinley@happyfrogatm.com</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Get Started</h4>
+      <ul>
+        <li><a href="#contact">Request Free Placement</a></li>
+        <li><a href="SCHEDULE_URL" target="_blank" rel="noopener">Schedule a Call</a></li>
+        <li><a href="tel:8338188778">Call (833) 818-8778</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#included">Free ATM Placement</a></li>
+        <li><a href="#included">Cash Management</a></li>
+        <li><a href="#included">Revenue Share</a></li>
+        <li><a href="#included">Maintenance &amp; Repair</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Coverage</h4>
+      <ul>
+        <li><a href="#contact">Nationwide Placement</a></li>
+        <li><a href="#contact">Multi-Location Operators</a></li>
+        <li><a href="tel:8338188778">Call to Confirm Your Market</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <div>© 2026 Happy Frog ATM, Inc. All rights reserved.</div>
+    <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#contact">Contact</a></div>
+  </div>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+//  CONFIG — swap your real calendar URL here.
+//  Examples: https://calendly.com/your-handle/30min
+//            https://cal.com/your-handle/intro
+//            https://calendar.app.google/your-link
+// ─────────────────────────────────────────────────────────────────────────────
+const SCHEDULE_URL = 'https://calendly.com/happyfrog-atm/intro-call';
+
+// Inject schedule URL into any element with the SCHEDULE_URL placeholder
+document.querySelectorAll('a[href="SCHEDULE_URL"]').forEach(a => {
+  a.setAttribute('href', SCHEDULE_URL);
+});
+
+function tFaq(btn){
+  const i=btn.closest('.faqitem'),o=i.classList.contains('open');
+  document.querySelectorAll('.faqitem').forEach(x=>x.classList.remove('open'));
+  if(!o)i.classList.add('open');
+}
+function hSubmit(e){
+  e.preventDefault();
+  const b=e.target.querySelector('.subbtn');
+  b.textContent="✓ Received — we'll be in touch within 1 business day.";
+  b.style.background="#1F6B3A";
+  b.disabled=true;
+}
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){
+      en.target.style.opacity='1';
+      en.target.style.transform='translateY(0)';
+      obs.unobserve(en.target);
+    }
+  });
+},{threshold:.08});
+document.querySelectorAll('.wc,.step,.faqitem,.statc,.eq-list li').forEach((el,i)=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(20px)';
+  el.style.transition=`opacity .5s ease ${i*.03}s,transform .5s ease ${i*.03}s`;
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
