@@ -47,7 +47,9 @@ export const metadata: Metadata = {
     images: ['/assets/logo.png'],
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: 'https://ideafueled.in/happyfrog/wp-content/uploads/2026/04/image-1.png',
+    shortcut: 'https://ideafueled.in/happyfrog/wp-content/uploads/2026/04/image-1.png',
+    apple: 'https://ideafueled.in/happyfrog/wp-content/uploads/2026/04/image-1.png',
   },
 };
 
