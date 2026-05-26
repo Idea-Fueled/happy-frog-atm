@@ -443,10 +443,10 @@ footer{background:var(--dark);padding:3rem clamp(1.5rem,5vw,4rem) 1.5rem}
     line-height:1.0;
   }
   .sbadge{
-    font-size:.68rem;
-    letter-spacing:1px;
+    font-size:clamp(0.6rem, 2.8vw, 0.7rem);
+    letter-spacing:0.5px;
     padding:6px 10px;
-    flex-wrap:wrap;
+    white-space:nowrap;
   }
 }
 
