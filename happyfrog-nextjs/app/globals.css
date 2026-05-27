@@ -671,7 +671,7 @@ section {
 
 .what-hdr {
   margin-bottom: 3rem;
-  max-width: 960px;
+  max-width: 100%;
   text-align: center;
   margin-left: auto;
   margin-right: auto
@@ -758,7 +758,7 @@ section {
 
 .how-hdr {
   margin-bottom: 2.5rem;
-  max-width: 960px;
+  max-width: 100%;
   text-align: center;
   margin-left: auto;
   margin-right: auto
@@ -839,7 +839,7 @@ section {
 }
 
 .eq-hdr {
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto 2.5rem;
   text-align: center
 }
@@ -921,7 +921,7 @@ section {
 
 .cmp-hdr {
   margin-bottom: 2.5rem;
-  max-width: 960px;
+  max-width: 100%;
   text-align: center;
   margin-left: auto;
   margin-right: auto
@@ -1009,7 +1009,7 @@ section {
 
 .faq-hdr {
   margin-bottom: 2.2rem;
-  max-width: 1200px;
+  max-width: 100%;
   text-align: center;
   margin-left: auto;
   margin-right: auto
@@ -1125,7 +1125,7 @@ section {
 
 .final-sec .sh2 {
   color: var(--cream);
-  max-width: 860px;
+  max-width: 100%;
   margin: 0 auto .8rem;
   position: relative;
   z-index: 1
