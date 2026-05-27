@@ -49,7 +49,7 @@ export default function WhatYouGet() {
       <div className="what-hdr">
         <div className="stag">What&apos;s Included</div>
         <h2 className="sh2">
-          Six things you get
+          Six things you get{' '}
           <br />
           <span className="olive">at zero cost</span>
         </h2>

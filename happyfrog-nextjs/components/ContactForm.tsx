@@ -29,10 +29,30 @@ export default function ContactForm() {
   //   - Direct email via Resend / Postmark / Sendgrid
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
     const formData = new FormData(e.currentTarget);
-    // Placeholder — replace with real submission:
-    console.log('Form submission (replace with backend call):', Object.fromEntries(formData));
-    setSubmitted(true);
+
+    const data = Object.fromEntries(formData);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitted(true);
+        e.currentTarget.reset();
+      }
+
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -41,7 +61,7 @@ export default function ContactForm() {
         <div className="form-left">
           <div className="stag">Get Started</div>
           <h2 className="sh2">
-            Order your
+            Order your{' '}
             <br />
             <span className="olive">free ATM</span>
           </h2>

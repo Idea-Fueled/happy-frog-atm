@@ -54,7 +54,7 @@ export default function FAQ() {
       <div className="faq-hdr">
         <div className="stag">Common Questions</div>
         <h2 className="sh2">
-          Everything dispensary operators
+          Everything dispensary operators{' '}
           <br />
           <span className="olive">ask before signing</span>
         </h2>

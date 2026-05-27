@@ -349,6 +349,8 @@ footer{background:var(--dark);padding:3rem clamp(1.5rem,5vw,4rem) 1.5rem}
 @media(max-width:900px){
   .sh2 br,
   .hero h1 br{display:none}
+  .sh2 .olive,
+  .hero h1 .olive{display:block}
   .hero{grid-template-columns:1fr;min-height:auto}
   .hero-right{padding:0 1.5rem 3.5rem;justify-content:center}
   .pcard{max-width:380px;width:100%}
@@ -482,7 +484,9 @@ footer{background:var(--dark);padding:3rem clamp(1.5rem,5vw,4rem) 1.5rem}
     font-size:clamp(0.6rem, 2.8vw, 0.7rem);
     letter-spacing:0.5px;
     padding:6px 10px;
-    white-space:nowrap;
+    white-space:normal;
+    max-width:100%;
+    box-sizing:border-box;
   }
   .btn-p{
     padding:12px 24px;
@@ -500,11 +504,14 @@ footer{background:var(--dark);padding:3rem clamp(1.5rem,5vw,4rem) 1.5rem}
     padding:12px 24px;
     font-size:.9rem;
   }
-  section{
+  section,
+  .stats-sec{
     padding:2.5rem 1rem;
   }
-  .eq-list li{
-    padding:1.25rem 1rem;
+  .eq-list li,
+  .wc,
+  .step{
+    padding:1.5rem 1.25rem;
   }
   .cform{
     padding:1.25rem 1rem;

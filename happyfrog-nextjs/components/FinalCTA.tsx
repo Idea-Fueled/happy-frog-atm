@@ -6,7 +6,7 @@ export default function FinalCTA() {
     <section className="final-sec">
       <div className="stag">Ready to Get Started</div>
       <h2 className="sh2">
-        Put a free, compliant ATM
+        Put a free, compliant ATM{' '}
         <br />
         <span className="olive">in your dispensary</span>
       </h2>

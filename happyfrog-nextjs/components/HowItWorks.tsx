@@ -31,7 +31,7 @@ export default function HowItWorks() {
       <div className="how-hdr">
         <div className="stag">How It Works</div>
         <h2 className="sh2">
-          We handle everything
+          We handle everything{' '}
           <br />
           <span className="olive">You just earn</span>
         </h2>

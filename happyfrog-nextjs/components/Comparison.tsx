@@ -81,7 +81,7 @@ export default function Comparison() {
       <div className="cmp-hdr">
         <div className="stag">How We Compare</div>
         <h2 className="sh2">
-          Happy Frog vs
+          Happy Frog vs{' '}
           <br />
           <span className="olive">The Alternatives</span>
         </h2>

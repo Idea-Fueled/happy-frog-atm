@@ -31,7 +31,7 @@ export default function Equipment() {
       <div className="eq-hdr">
         <div className="stag">The Equipment</div>
         <h2 className="sh2">
-          Industry-grade ATMs
+          Industry-grade ATMs{' '}
           <br />
           <span className="olive">Sized to your traffic</span>
         </h2>

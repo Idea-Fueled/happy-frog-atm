@@ -12,9 +12,9 @@ export default function Hero() {
           <span>Cannabis-Compliant ATM Placement</span>
         </div>
         <h1>
-          Free ATMs
+          Free ATMs{' '}
           <br />
-          For Licensed
+          For Licensed{' '}
           <br />
           <span className="olive">Cannabis Dispensaries</span>
         </h1>
@@ -76,7 +76,7 @@ export default function Hero() {
               Request ATM Installation →
             </a>
             <p className="cnote">
-              Response within 1 business day · No obligation
+              Response within 1 business day <span style={{ whiteSpace: 'nowrap' }}>· No obligation</span>
             </p>
           </div>
         </div>
