@@ -33,8 +33,34 @@
   --dark:#000000;
 }
 
+/* ───────────────────────────────────────────────────────────────────────────
+   PRODUCTION GOOGLE FONTS INTEGRATION
+   Enforces Next.js build-time Google Fonts globally across all viewports.
+   ─────────────────────────────────────────────────────────────────────────── */
+body, 
+.pch-badge, 
+.faqq, 
+.ff input, 
+.ff select, 
+.ff textarea, 
+.subbtn {
+  font-family: var(--font-inter, 'Inter'), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.hero h1, 
+.sh2, 
+.pch-title, 
+.pnum, 
+.statn, 
+.wnum, 
+.snum, 
+.eq-num, 
+.final-sec::before {
+  font-family: var(--font-barlow, 'Barlow Condensed'), Impact, sans-serif !important;
+}
+
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{background:var(--white);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
 /* ── ANNOUNCE BAR ── */
 .announce-bar{background:var(--ink2);text-align:center;padding:10px 1rem;font-size:.85rem;font-weight:500;color:rgba(246,241,228,.85);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
