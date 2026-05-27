@@ -271,7 +271,7 @@ nav.site-nav {
   letter-spacing: -.5px;
   color: var(--ink);
   margin-bottom: 1.5rem;
-  text-wrap: balance
+  text-wrap: pretty
 }
 
 .hero h1 .olive {
@@ -592,7 +592,7 @@ section {
   letter-spacing: -.5px;
   color: var(--ink);
   margin-bottom: 1rem;
-  text-wrap: balance
+  text-wrap: pretty
 }
 
 .sh2 .olive {
@@ -671,7 +671,7 @@ section {
 
 .what-hdr {
   margin-bottom: 3rem;
-  max-width: 900px;
+  max-width: 960px;
   text-align: center;
   margin-left: auto;
   margin-right: auto
@@ -758,7 +758,7 @@ section {
 
 .how-hdr {
   margin-bottom: 2.5rem;
-  max-width: 900px;
+  max-width: 960px;
   text-align: center;
   margin-left: auto;
   margin-right: auto
@@ -839,7 +839,7 @@ section {
 }
 
 .eq-hdr {
-  max-width: 760px;
+  max-width: 900px;
   margin: 0 auto 2.5rem;
   text-align: center
 }
@@ -921,7 +921,7 @@ section {
 
 .cmp-hdr {
   margin-bottom: 2.5rem;
-  max-width: 900px;
+  max-width: 960px;
   text-align: center;
   margin-left: auto;
   margin-right: auto
@@ -1009,7 +1009,7 @@ section {
 
 .faq-hdr {
   margin-bottom: 2.2rem;
-  max-width: 1150px;
+  max-width: 1200px;
   text-align: center;
   margin-left: auto;
   margin-right: auto
@@ -1125,7 +1125,7 @@ section {
 
 .final-sec .sh2 {
   color: var(--cream);
-  max-width: 720px;
+  max-width: 860px;
   margin: 0 auto .8rem;
   position: relative;
   z-index: 1
@@ -1417,6 +1417,29 @@ footer {
     grid-template-columns: 1fr;
     gap: 3rem
   }
+
+  .form-left {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-left .stag {
+    justify-content: center;
+  }
+
+  .form-left .slead {
+    margin: 1rem auto 0;
+    max-width: 600px;
+  }
+
+  .fperks {
+    text-align: left;
+    align-self: stretch;
+    max-width: 500px;
+    margin: 1.5rem auto 0;
+  }
 }
 
 @media(max-width:900px) {
@@ -1443,6 +1466,30 @@ footer {
   .hero {
     grid-template-columns: 1fr;
     min-height: auto
+  }
+
+  .hero-left {
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-left .sbadge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-left .hsub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hactions {
+    justify-content: center;
+  }
+
+  .hrisk {
+    justify-content: center;
+    text-align: center;
   }
 
   .hero-right {
@@ -1745,4 +1792,79 @@ footer {
     text-align: center;
     white-space: normal;
   }
+}
+
+/* ── LEGAL PAGES ── */
+.legal-hero {
+  padding: clamp(3.5rem, 7vw, 5.5rem) clamp(1.5rem, 5vw, 4rem);
+  text-align: center;
+  background: var(--cream);
+  border-bottom: 1px solid var(--g3);
+}
+
+.legal-hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.02;
+  margin-bottom: 1rem;
+  color: var(--ink);
+}
+
+.legal-hero p {
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  color: var(--body);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.78;
+}
+
+.legal-body {
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 5vw, 3rem);
+  max-width: 840px;
+  margin: 0 auto;
+  background: var(--white);
+}
+
+.legal-section {
+  margin-bottom: 3rem;
+}
+
+.legal-section:last-child {
+  margin-bottom: 0;
+}
+
+.legal-section h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: var(--ink);
+}
+
+.legal-section p {
+  font-size: 0.95rem;
+  color: var(--body);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.legal-section ul {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.legal-section li {
+  font-size: 0.95rem;
+  color: var(--body);
+  line-height: 1.8;
+  margin-bottom: 0.6rem;
+}
+
+.legal-section strong {
+  color: var(--ink);
+  font-weight: 600;
 }

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { siteConfig } from './site-config';
 import { PhoneIcon } from './Icons';
 
@@ -83,8 +84,8 @@ export default function Footer() {
       <div className="foot-bot">
         <div>© {new Date().getFullYear()} Happy Frog ATM, Inc. All rights reserved.</div>
         <div>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
+          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/terms">Terms of Service</Link>
           <a href="#contact">Contact</a>
         </div>
       </div>
