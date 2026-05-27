@@ -203,7 +203,7 @@ nav.site-nav {
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1.1fr .9fr;
+  grid-template-columns: 1fr 1fr;
   min-height: auto;
   border-bottom: 1px solid var(--g3)
 }
@@ -387,12 +387,31 @@ nav.site-nav {
   z-index: 1
 }
 
+/* ── LAPTOP+ HERO CARD BOOST ── */
+@media(min-width:1024px) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-right {
+    padding: 2.5rem 1.5rem 2.5rem 1rem;
+  }
+
+  .pcard {
+    max-width: 580px;
+  }
+
+  .pcard-body {
+    padding: 2.2rem 2.5rem;
+  }
+}
+
 /* ── HERO CARD ── */
 .pcard {
   background: var(--cream);
   border-radius: 8px;
   width: 100%;
-  max-width: 380px;
+  max-width: 440px;
   overflow: hidden;
   box-shadow: 0 24px 60px rgba(0, 0, 0, .18), 0 0 0 1px rgba(112, 128, 16, .2)
 }
@@ -425,7 +444,7 @@ nav.site-nav {
 }
 
 .pcard-body {
-  padding: 1.75rem
+  padding: 2rem 2.1rem
 }
 
 .pmain {
@@ -1498,7 +1517,7 @@ footer {
   }
 
   .pcard {
-    max-width: 380px;
+    max-width: 440px;
     width: 100%
   }
 
