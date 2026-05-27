@@ -347,6 +347,8 @@ footer{background:var(--dark);padding:3rem clamp(1.5rem,5vw,4rem) 1.5rem}
   .fwrap{grid-template-columns:1fr;gap:3rem}
 }
 @media(max-width:900px){
+  .hero h1{font-size:clamp(2.2rem,6vw,3.2rem);line-height:1.02}
+  .sh2{font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.02}
   .sh2 br,
   .hero h1 br{display:none}
   .sh2 .olive,
@@ -369,7 +371,7 @@ footer{background:var(--dark);padding:3rem clamp(1.5rem,5vw,4rem) 1.5rem}
   .foot-brand{grid-column:1/-1}
 }
 @media(max-width:600px){
-  .sh2{font-size:clamp(1.8rem,8vw,2.5rem)}
+  .sh2{font-size:clamp(1.5rem,6vw,2.0rem)}
   .steps{grid-template-columns:1fr}
   .step{border-right:none!important;border-bottom:1px solid rgba(255,255,255,.06)!important}
   .step:last-child{border-bottom:none!important}
@@ -477,8 +479,8 @@ footer{background:var(--dark);padding:3rem clamp(1.5rem,5vw,4rem) 1.5rem}
     padding:0 1.25rem 2.5rem;
   }
   .hero h1{
-    font-size:clamp(2rem,9.5vw,2.8rem);
-    line-height:1.0;
+    font-size:clamp(1.7rem,8vw,2.4rem);
+    line-height:1.02;
   }
   .sbadge{
     font-size:clamp(0.6rem, 2.8vw, 0.7rem);
