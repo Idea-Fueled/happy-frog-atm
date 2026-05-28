@@ -1103,6 +1103,8 @@ section {
 .faqicon {
   width: 22px;
   height: 22px;
+  min-width: 22px;
+  min-height: 22px;
   border-radius: 50%;
   background: var(--olivelt);
   color: var(--olive3);
@@ -1110,6 +1112,8 @@ section {
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
+  line-height: 1;
+  padding: 0;
   flex-shrink: 0;
   transition: transform .2s, background .2s, color .2s;
   font-weight: 300

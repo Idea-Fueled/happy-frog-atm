@@ -70,7 +70,7 @@ export default function FAQ() {
                 aria-expanded={open}
               >
                 {qa.q}
-                <div className="faqicon">+</div>
+                <div className="faqicon"><span style={{display:'block',lineHeight:1}}>+</span></div>
               </button>
               <div className="faqa">{qa.a}</div>
             </div>
