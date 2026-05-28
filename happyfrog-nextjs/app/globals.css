@@ -1851,17 +1851,17 @@ footer {
 
 /* ── LEGAL PAGES ── */
 .legal-back-bar {
-  background: var(--cream);
+  background: var(--ink);
   height: 76px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 clamp(1.5rem, 5vw, 4rem);
-  border-bottom: 1px solid var(--g3);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
 .back-btn {
-  color: var(--ink);
+  color: var(--cream);
   text-decoration: none;
   font-size: .9rem;
   font-weight: 700;
@@ -1875,7 +1875,7 @@ footer {
 }
 
 .back-btn:hover {
-  color: var(--olive3);
+  color: var(--olive2);
 }
 
 .legal-hero {
