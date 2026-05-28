@@ -47,7 +47,7 @@ export default function Equipment() {
           <li key={s.n}>
             <div className="eq-num">{s.n}</div>
             <div>
-              <h4>{s.title}</h4>
+              <h3>{s.title}</h3>
               <p>{s.body}</p>
             </div>
           </li>

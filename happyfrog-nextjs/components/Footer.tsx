@@ -27,7 +27,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="foot-col">
-          <h4>Get Started</h4>
+          <h3>Get Started</h3>
           <ul>
             <li>
               <a href="/#contact">Request Free Placement</a>
@@ -50,7 +50,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="foot-col">
-          <h4>Services</h4>
+          <h3>Services</h3>
           <ul>
             <li>
               <a href="/#included">Free ATM Placement</a>
@@ -67,7 +67,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="foot-col">
-          <h4>Coverage</h4>
+          <h3>Coverage</h3>
           <ul>
             <li>
               <a href="/#contact">Nationwide Placement</a>

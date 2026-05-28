@@ -942,7 +942,7 @@ section {
   padding-top: 2px
 }
 
-.eq-list h4 {
+.eq-list h3 {
   font-size: 1rem;
   font-weight: 800;
   color: var(--ink);
@@ -1408,7 +1408,7 @@ footer {
   color: var(--olive2)
 }
 
-.foot-col h4 {
+.foot-col h3 {
   font-size: .74rem;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -1851,16 +1851,15 @@ footer {
 
 /* ── LEGAL PAGES ── */
 .legal-back-bar {
-  background: var(--ink);
+  background: var(--cream);
   height: 64px;
   display: flex;
   align-items: center;
-  padding: 0 clamp(1.5rem, 5vw, 4rem);
-  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  padding: 24px clamp(1.5rem, 5vw, 4rem) 0;
 }
 
 .back-btn {
-  color: var(--cream);
+  color: var(--ink);
   text-decoration: none;
   font-size: .9rem;
   font-weight: 700;
@@ -1874,7 +1873,7 @@ footer {
 }
 
 .back-btn:hover {
-  color: var(--olive2);
+  color: var(--olive3);
 }
 
 .legal-hero {
