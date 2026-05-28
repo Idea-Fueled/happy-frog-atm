@@ -264,7 +264,7 @@ nav.site-nav {
 
 .hero h1 {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(3rem, 11vw, 5rem);
+  font-size: 4rem;
   font-weight: 900;
   line-height: .96;
   text-transform: uppercase;
@@ -369,13 +369,21 @@ nav.site-nav {
 .hrisk {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  font-size: .8rem;
-  color: #666
+  gap: 12px;
+  font-size: .84rem;
+  color: #555;
+  text-align: left;
+  max-width: 600px
+}
+
+.hrisk svg {
+  flex-shrink: 0;
+  color: var(--olive2);
+  margin-top: 2px
 }
 
 .hrisk span {
-  line-height: 1.55
+  line-height: 1.6
 }
 
 .hero-right {
@@ -604,7 +612,7 @@ section {
 
 .sh2 {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-size: 3.5rem;
   font-weight: 900;
   text-transform: uppercase;
   line-height: .95;
@@ -631,56 +639,62 @@ section {
   background: var(--cream);
   border-top: 1px solid var(--g3);
   border-bottom: 1px solid var(--g3);
-  padding: clamp(3rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem)
+  padding: clamp(3.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem)
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  gap: 1.75rem;
   max-width: 1200px;
   margin: 0 auto
 }
 
 .statc {
-  padding: .5rem 1.75rem;
-  border-left: 1px solid var(--g3)
-}
-
-.statc:first-child {
-  border-left: none;
-  padding-left: 0
+  background: var(--white);
+  border-radius: 8px;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .03), 0 0 0 1px rgba(112, 128, 16, .05);
+  border-top: 4px solid var(--olive);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start
 }
 
 .statn {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(2.8rem, 4.5vw, 3.8rem);
+  font-size: clamp(3rem, 4.5vw, 4rem);
   font-weight: 900;
   color: var(--frog);
   line-height: 1;
-  margin-bottom: .4rem
+  margin-bottom: .6rem;
+  display: flex;
+  align-items: baseline
 }
 
 .statn .unit {
-  font-size: .5em;
+  font-size: .55em;
   color: var(--olive3);
-  margin-left: 2px
+  margin-left: 2px;
+  font-weight: 800
 }
 
 .statl {
-  font-size: .82rem;
+  font-size: .88rem;
   color: var(--body);
-  line-height: 1.5
+  line-height: 1.6;
+  font-weight: 500
 }
 
 .stats-foot {
   max-width: 1200px;
-  margin: 1.5rem auto 0;
-  font-size: .72rem;
+  margin: 2rem auto 0;
+  font-size: .74rem;
   color: var(--g1);
   letter-spacing: .5px;
   text-transform: uppercase;
-  font-weight: 500
+  font-weight: 600;
+  text-align: center
 }
 
 /* ── WHAT YOU GET ── */
@@ -1445,6 +1459,27 @@ footer {
 }
 
 /* ── RESPONSIVE ── */
+@media(max-width:1024px) {
+  .hero h1 {
+    max-width: 920px !important;
+  }
+
+  .what-hdr,
+  .how-hdr,
+  .eq-hdr,
+  .cmp-hdr,
+  .faq-hdr,
+  .final-sec .sh2,
+  .form-left .sh2 {
+    max-width: 920px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .foot-grid {
+    gap: 1.5rem;
+  }
+}
 @media(max-width:1000px) {
   .fwrap {
     grid-template-columns: 1fr;
@@ -1478,7 +1513,9 @@ footer {
 @media(max-width:900px) {
   .hero h1 {
     font-size: clamp(2.2rem, 6vw, 3.2rem);
-    line-height: 1.02
+    line-height: 1.02;
+    margin-left: auto;
+    margin-right: auto
   }
 
   .sh2 {
@@ -1522,7 +1559,7 @@ footer {
 
   .hrisk {
     justify-content: center;
-    text-align: center;
+    max-width: 100%
   }
 
   .hero-right {
@@ -1554,17 +1591,12 @@ footer {
   }
 
   .stats-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem 0
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem
   }
 
   .statc {
-    padding: .5rem 1.25rem
-  }
-
-  .statc:nth-child(3) {
-    border-left: none;
-    padding-left: 0
+    padding: 2rem 1.75rem
   }
 
   .frow {
@@ -1581,15 +1613,6 @@ footer {
 
   .nav-phone {
     display: none !important
-  }
-
-  .foot-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem
-  }
-
-  .foot-brand {
-    grid-column: 1/-1
   }
 }
 
@@ -1613,12 +1636,11 @@ footer {
 
   .stats-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem
+    gap: 1rem
   }
 
   .statc {
-    border-left: none;
-    padding-left: 0 !important
+    padding: 1.75rem 1.5rem
   }
 
   .ctbl td,
@@ -1837,7 +1859,7 @@ footer {
 
 .legal-hero h1 {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-size: 4rem;
   font-weight: 900;
   text-transform: uppercase;
   line-height: 1.02;

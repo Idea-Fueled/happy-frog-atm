@@ -42,7 +42,7 @@ export default function Hero() {
           </a>
         </div>
         <div className="hrisk">
-          <ShieldIcon style={{ color: 'var(--olive3)', marginTop: 2 }} />
+          <ShieldIcon />
           <span>
             No equipment cost · No credit check · Live within 10–14 business
             days · You keep the floor space, we handle the rest
