@@ -70,7 +70,12 @@ export default function FAQ() {
                 aria-expanded={open}
               >
                 {qa.q}
-                <div className="faqicon"><span style={{display:'block',lineHeight:1}}>+</span></div>
+                <div className="faqicon">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    <line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                </div>
               </button>
               <div className="faqa">{qa.a}</div>
             </div>
