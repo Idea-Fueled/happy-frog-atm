@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import SiteNav from '@/components/SiteNav';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
@@ -10,7 +9,11 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <SiteNav minimal />
+      <div className="legal-back-bar">
+        <a href="/" className="back-btn">
+          ← Back
+        </a>
+      </div>
       <main>
         <section className="legal-hero">
           <h1>Privacy Policy</h1>

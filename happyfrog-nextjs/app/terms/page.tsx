@@ -1,16 +1,19 @@
 import type { Metadata } from 'next';
-import SiteNav from '@/components/SiteNav';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Terms of Service — Happy Frog ATM',
-  description: 'Understand the terms, guidelines, and responsibilities governing our free ATM placement partnership.',
+  description: 'Understand the terms, guidelines, and responsibilities governing our free ATM partnership.',
 };
 
 export default function TermsPage() {
   return (
     <>
-      <SiteNav minimal />
+      <div className="legal-back-bar">
+        <a href="/" className="back-btn">
+          ← Back
+        </a>
+      </div>
       <main>
         <section className="legal-hero">
           <h1>Terms of Service</h1>

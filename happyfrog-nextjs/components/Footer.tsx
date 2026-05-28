@@ -30,7 +30,7 @@ export default function Footer() {
           <h4>Get Started</h4>
           <ul>
             <li>
-              <a href="#contact">Request Free Placement</a>
+              <a href="/#contact">Request Free Placement</a>
             </li>
             <li>
               <a
@@ -45,7 +45,7 @@ export default function Footer() {
               <a href={siteConfig.phone.tel}>Call {siteConfig.phone.display}</a>
             </li>
             <li>
-              <a href="#faq">FAQ</a>
+              <a href="/#faq">FAQ</a>
             </li>
           </ul>
         </div>
@@ -53,16 +53,16 @@ export default function Footer() {
           <h4>Services</h4>
           <ul>
             <li>
-              <a href="#included">Free ATM Placement</a>
+              <a href="/#included">Free ATM Placement</a>
             </li>
             <li>
-              <a href="#included">Cash Management</a>
+              <a href="/#included">Cash Management</a>
             </li>
             <li>
-              <a href="#included">Revenue Share</a>
+              <a href="/#included">Revenue Share</a>
             </li>
             <li>
-              <a href="#included">Maintenance &amp; Repair</a>
+              <a href="/#included">Maintenance &amp; Repair</a>
             </li>
           </ul>
         </div>
@@ -70,10 +70,10 @@ export default function Footer() {
           <h4>Coverage</h4>
           <ul>
             <li>
-              <a href="#contact">Nationwide Placement</a>
+              <a href="/#contact">Nationwide Placement</a>
             </li>
             <li>
-              <a href="#contact">Multi-Location Operators</a>
+              <a href="/#contact">Multi-Location Operators</a>
             </li>
             <li>
               <a href={siteConfig.phone.tel}>Call to Confirm Your Market</a>
@@ -86,7 +86,7 @@ export default function Footer() {
         <div>
           <Link href="/privacy">Privacy Policy</Link>
           <Link href="/terms">Terms of Service</Link>
-          <a href="#contact">Contact</a>
+          <a href="/#contact">Contact</a>
         </div>
       </div>
     </footer>
