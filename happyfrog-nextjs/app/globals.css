@@ -1852,10 +1852,12 @@ footer {
 /* ── LEGAL PAGES ── */
 .legal-back-bar {
   background: var(--cream);
-  height: 64px;
+  height: 76px;
   display: flex;
   align-items: center;
-  padding: 24px clamp(1.5rem, 5vw, 4rem) 0;
+  justify-content: space-between;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--g3);
 }
 
 .back-btn {

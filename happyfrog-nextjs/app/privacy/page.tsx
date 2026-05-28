@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
@@ -10,6 +12,17 @@ export default function PrivacyPage() {
   return (
     <>
       <div className="legal-back-bar">
+        <div className="nav-logo">
+          <Link href="/" style={{ display: 'block' }}>
+            <Image
+              src="/assets/logo.png"
+              alt="Happy Frog ATM"
+              width={158}
+              height={46}
+              priority
+            />
+          </Link>
+        </div>
         <a href="/" className="back-btn">
           ← Back
         </a>
