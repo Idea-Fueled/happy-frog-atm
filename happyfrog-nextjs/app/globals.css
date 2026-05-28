@@ -712,12 +712,26 @@ section {
 
 .what-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+  grid-template-columns: 1fr;
   gap: 1px;
   background: var(--g3);
   border: 1px solid var(--g3);
   border-radius: 8px;
-  overflow: hidden
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto
+}
+
+@media(min-width: 600px) {
+  .what-grid {
+    grid-template-columns: repeat(2, 1fr)
+  }
+}
+
+@media(min-width: 1024px) {
+  .what-grid {
+    grid-template-columns: repeat(3, 1fr)
+  }
 }
 
 .wc {
