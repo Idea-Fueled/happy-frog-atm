@@ -1300,14 +1300,25 @@ section {
   color: var(--ink);
   outline: none;
   transition: border-color .2s, background .2s;
-  width: 100%
+  width: 100%;
+}
+
+.ff select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233A3A28' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px 16px;
+  padding-right: 40px;
 }
 
 .ff input:focus,
 .ff select:focus,
 .ff textarea:focus {
   border-color: var(--olive);
-  background: var(--white)
+  background-color: var(--white);
 }
 
 .ff textarea {
@@ -1480,6 +1491,7 @@ footer {
     gap: 1.5rem;
   }
 }
+
 @media(max-width:1000px) {
   .fwrap {
     grid-template-columns: 1fr;
