@@ -162,6 +162,9 @@ nav.site-nav {
   transition: background .2s, transform .15s;
   white-space: nowrap;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .nav-cta:hover {
@@ -203,9 +206,11 @@ nav.site-nav {
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   min-height: auto;
-  border-bottom: 1px solid var(--g3)
+  border-bottom: 1px solid var(--g3);
+  padding-left: 0;
+  padding-right: 0
 }
 
 .hbg {
@@ -264,7 +269,7 @@ nav.site-nav {
 
 .hero h1 {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 4rem;
+  font-size: clamp(2.8rem, 4.5vw, 4rem);
   font-weight: 900;
   line-height: .96;
   text-transform: uppercase;
@@ -395,16 +400,19 @@ nav.site-nav {
   z-index: 1
 }
 
-/* ── LAPTOP+ HERO CARD BOOST ── */
-@media(min-width:1024px) {
-  .hero {
-    grid-template-columns: 1fr 1fr;
+/* ── RESPONSIVE HERO PADDINGS (TABLET & DESKTOP) ── */
+@media(min-width:901px) {
+  .hero-left {
+    padding: clamp(2.5rem, 5vw, 4rem) clamp(1rem, 2.5vw, 1.5rem) clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem);
   }
 
   .hero-right {
-    padding: 2.5rem 1.5rem 2.5rem 1rem;
+    padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 2.5rem clamp(1rem, 2.5vw, 1.5rem);
   }
+}
 
+/* ── LAPTOP+ HERO CARD BOOST ── */
+@media(min-width:1200px) {
   .pcard {
     max-width: 580px;
   }
@@ -426,10 +434,11 @@ nav.site-nav {
 
 .pcard-hdr {
   background: var(--ink);
-  padding: 1.25rem 1.75rem;
+  padding: 1.25rem clamp(1.25rem, 5vw, 1.75rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
   border-bottom: 3px solid var(--olive)
 }
 
@@ -439,7 +448,8 @@ nav.site-nav {
   font-weight: 800;
   text-transform: uppercase;
   color: var(--cream);
-  letter-spacing: 1px
+  letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .pch-badge {
@@ -448,7 +458,9 @@ nav.site-nav {
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--olive2)
+  color: var(--olive2);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .pcard-body {
@@ -524,7 +536,6 @@ nav.site-nav {
 
 .ccta {
   width: 100%;
-  text-align: center;
   background: var(--ink);
   color: var(--cream);
   font-size: .95rem;
@@ -534,7 +545,10 @@ nav.site-nav {
   border-radius: 4px;
   cursor: pointer;
   text-decoration: none;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   transition: background .2s
 }
 
@@ -603,11 +617,7 @@ section {
 }
 
 .stag::before {
-  content: '';
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: var(--olive3)
+  display: none
 }
 
 .sh2 {
@@ -759,15 +769,19 @@ section {
   background: var(--olivelt)
 }
 
+.wc-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .9rem
+}
+
 .wnum {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 3.5rem;
   font-weight: 900;
   line-height: 1;
-  color: var(--g3);
-  position: absolute;
-  top: 1rem;
-  right: 1.25rem
+  color: var(--g3)
 }
 
 .wico {
@@ -779,9 +793,9 @@ section {
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
-  margin-bottom: .9rem;
   color: var(--olive3);
-  font-weight: 700
+  font-weight: 700;
+  flex-shrink: 0
 }
 
 .wc h3 {
@@ -842,7 +856,9 @@ section {
   background: rgba(255, 255, 255, .04);
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, .06)
+  border: 1px solid rgba(255, 255, 255, .06);
+  max-width: 1200px;
+  margin: 0 auto
 }
 
 .step {
@@ -993,6 +1009,8 @@ section {
 
 .ctbl {
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   border-collapse: collapse;
   font-size: .88rem
 }
@@ -1047,6 +1065,21 @@ section {
 
 .maybe {
   color: #D9B547
+}
+
+.c-cell {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  text-align: left;
+}
+
+.c-icon {
+  flex-shrink: 0;
+}
+
+.c-text {
+  white-space: normal;
 }
 
 /* ── FAQ ── */
@@ -1338,7 +1371,11 @@ section {
   cursor: pointer;
   transition: background .2s, transform .15s;
   width: 100%;
-  letter-spacing: .2px
+  letter-spacing: .2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .subbtn:hover {
@@ -1553,6 +1590,7 @@ footer {
   .hero-left {
     text-align: center;
     align-items: center;
+    padding: clamp(2rem, 6vw, 3rem) clamp(1rem, 5vw, 1.5rem);
   }
 
   .hero-left .sbadge {
@@ -1575,7 +1613,7 @@ footer {
   }
 
   .hero-right {
-    padding: 0 1.5rem 3.5rem;
+    padding: 0 clamp(1rem, 5vw, 1.5rem) 3.5rem;
     justify-content: center
   }
 
@@ -1962,4 +2000,58 @@ footer {
 .legal-section strong {
   color: var(--ink);
   font-weight: 600;
+}
+
+/* ── VERY SMALL MOBILE SCREEN RESPONSIVENESS (<= 480px) ── */
+@media(max-width:480px) {
+  .sbadge {
+    font-size: .68rem;
+    letter-spacing: 0.8px;
+    padding: 6px 10px;
+  }
+
+  .btn-p {
+    padding: 14px 20px;
+  }
+
+  .btn-o {
+    padding: 14px 16px;
+  }
+
+  .pch-title {
+    white-space: normal;
+    max-width: 120px;
+  }
+
+  .pcard-body {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+/* ── LARGE DESKTOP SCREEN OPTIMIZATIONS (>= 1360px) ── */
+@media(min-width:1360px) {
+  nav.site-nav {
+    padding-left: calc((100% - 1280px) / 2 + 2rem);
+    padding-right: calc((100% - 1280px) / 2 + 2rem);
+  }
+
+  .legal-back-bar {
+    padding-left: calc((100% - 1280px) / 2 + 2rem);
+    padding-right: calc((100% - 1280px) / 2 + 2rem);
+  }
+
+  .hero {
+    padding-left: calc((100% - 1280px) / 2);
+    padding-right: calc((100% - 1280px) / 2);
+  }
+
+  .hero-left {
+    padding-left: 2rem;
+    padding-right: 1.5rem;
+  }
+
+  .hero-right {
+    padding-left: 1.5rem;
+    padding-right: 2rem;
+  }
 }

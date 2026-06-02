@@ -72,6 +72,16 @@ const rows: Row[] = [
 ];
 
 function renderCell(c: Cell) {
+  const match = c.text.match(/^([✓✗~])\s(.*)$/);
+  if (match) {
+    const [, icon, text] = match;
+    return (
+      <span className={`${c.kind} c-cell`}>
+        <span className="c-icon">{icon}</span>
+        <span className="c-text">{text}</span>
+      </span>
+    );
+  }
   return <span className={c.kind}>{c.text}</span>;
 }
 

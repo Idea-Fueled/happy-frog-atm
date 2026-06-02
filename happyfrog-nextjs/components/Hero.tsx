@@ -1,5 +1,5 @@
 import { siteConfig } from './site-config';
-import { CalendarIcon, ShieldIcon } from './Icons';
+import { CalendarIcon, ShieldIcon, ArrowIcon } from './Icons';
 
 export default function Hero() {
   return (
@@ -26,7 +26,7 @@ export default function Hero() {
         </p>
         <div className="hactions">
           <a href="#contact" className="btn-p">
-            Request Your Free ATM →
+            Request Your Free ATM <ArrowIcon />
           </a>
           <a
             href={siteConfig.scheduleUrl}
@@ -37,8 +37,8 @@ export default function Hero() {
             <CalendarIcon />
             Schedule a Call
           </a>
-          <a href="#how" className="btn-link">
-            See How It Works →
+          <a href="#how" className="btn-o">
+            See How It Works <ArrowIcon />
           </a>
         </div>
         <div className="hrisk">
@@ -73,7 +73,7 @@ export default function Hero() {
               <Row label="Monthly commission" value="Paid to you" hot />
             </div>
             <a href="#contact" className="ccta">
-              Request ATM Installation →
+              Request ATM Installation <ArrowIcon />
             </a>
             <p className="cnote">
               Response within 1 business day <span style={{ whiteSpace: 'nowrap' }}>· No obligation</span>

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { siteConfig } from './site-config';
-import { PhoneIcon } from './Icons';
+import { PhoneIcon, ArrowIcon } from './Icons';
 
 export default function SiteNav({ minimal = false }: { minimal?: boolean }) {
   return (
@@ -32,7 +32,7 @@ export default function SiteNav({ minimal = false }: { minimal?: boolean }) {
             <span className="nav-phone-num">{siteConfig.phone.display}</span>
           </a>
           <a href="#contact" className="nav-cta">
-            Get a Free ATM →
+            Get a Free ATM <ArrowIcon />
           </a>
         </div>
       )}

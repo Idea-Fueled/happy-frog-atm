@@ -1,5 +1,5 @@
 import { siteConfig } from './site-config';
-import { CalendarIcon, PhoneIcon } from './Icons';
+import { CalendarIcon, PhoneIcon, ArrowIcon } from './Icons';
 
 export default function FinalCTA() {
   return (
@@ -17,7 +17,7 @@ export default function FinalCTA() {
       </p>
       <div className="factions">
         <a href="#contact" className="btn-p">
-          Request Free Placement →
+          Request Free Placement <ArrowIcon />
         </a>
         <a
           href={siteConfig.scheduleUrl}

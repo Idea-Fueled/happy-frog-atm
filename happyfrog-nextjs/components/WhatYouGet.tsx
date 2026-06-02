@@ -62,8 +62,10 @@ export default function WhatYouGet() {
       <div className="what-grid">
         {items.map((it) => (
           <div className="wc" key={it.n}>
-            <div className="wnum">{it.n}</div>
-            <div className="wico">{it.ico}</div>
+            <div className="wc-hdr">
+              <div className="wico">{it.ico}</div>
+              <div className="wnum">{it.n}</div>
+            </div>
             <h3>{it.title}</h3>
             <p>{it.body}</p>
           </div>

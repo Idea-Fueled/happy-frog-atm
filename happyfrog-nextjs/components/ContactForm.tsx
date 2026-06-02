@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { ArrowIcon } from './Icons';
 
 const perks = [
   'Location qualified within 1 business day',
@@ -131,9 +132,13 @@ export default function ContactForm() {
                 : undefined
             }
           >
-            {submitted
-              ? '✓ Received — we will be in touch within 1 business day.'
-              : 'Request Free ATM Placement →'}
+            {submitted ? (
+              '✓ Received — we will be in touch within 1 business day.'
+            ) : (
+              <>
+                Request Free ATM Placement <ArrowIcon />
+              </>
+            )}
           </button>
           <div className="subnote">
             Your information stays private — no spam, ever. Response within 1
