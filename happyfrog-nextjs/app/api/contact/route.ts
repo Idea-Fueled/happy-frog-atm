@@ -7,24 +7,24 @@ import path from "path";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
-    try {
-        const body = await req.json();
-        const { firstName, lastName, dispensary, phone, email, address, license, notes } = body;
+  try {
+    const body = await req.json();
+    const { firstName, lastName, dispensary, phone, email, address, license, notes } = body;
 
-        const currentYear = new Date().getFullYear();
-        const formattedNotes = notes ? notes.replace(/\n/g, '<br/>') : '<em>No notes provided by sender.</em>';
+    const currentYear = new Date().getFullYear();
+    const formattedNotes = notes ? notes.replace(/\n/g, '<br/>') : '<em>No notes provided by sender.</em>';
 
-        // Load the logo from the public directory
-        const logoPath = path.join(process.cwd(), 'public', 'assets', 'logo.png');
-        const logoBuffer = fs.readFileSync(logoPath);
+    // Load the logo from the public directory
+    const logoPath = path.join(process.cwd(), 'public', 'assets', 'logo.png');
+    const logoBuffer = fs.readFileSync(logoPath);
 
-        const { data, error } = await resend.emails.send({
-            // IMPORTANT: For free/testing accounts, Resend requires using 'onboarding@resend.dev'.
-            // You cannot send from arbitrary domains (like gmail.com) until you verify ownership of that domain.
-            from: 'onboarding@resend.dev',
-            to: 'anirudhj545@gmail.com', // Must be the email address you signed up to Resend with
-            subject: `🐸 New Lead: ${dispensary}`,
-            html: `
+    const { data, error } = await resend.emails.send({
+      // IMPORTANT: For free/testing accounts, Resend requires using 'onboarding@resend.dev'.
+      // You cannot send from arbitrary domains (like gmail.com) until you verify ownership of that domain.
+      from: 'onboarding@resend.dev',
+      to: 'anirudhj545@gmail.com', // Must be the email address you signed up to Resend with
+      subject: `🐸 Website New Lead: Happy Frog`,
+      html: `
               <!DOCTYPE html>
               <html>
               <head>
@@ -124,24 +124,24 @@ export async function POST(req: Request) {
               </body>
               </html>
             `,
-            attachments: [
-                {
-                    filename: 'logo.png',
-                    content: logoBuffer,
-                    contentId: 'logo'
-                }
-            ]
-        });
-
-        if (error) {
-            console.error("Resend API error details:", error);
-            return NextResponse.json({ error: error.message }, { status: 400 });
+      attachments: [
+        {
+          filename: 'logo.png',
+          content: logoBuffer,
+          contentId: 'logo'
         }
+      ]
+    });
 
-        console.log("Email sent successfully:", data);
-        return NextResponse.json({ success: true });
-    } catch (err) {
-        console.error("Unexpected error in contact API:", err);
-        return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+    if (error) {
+      console.error("Resend API error details:", error);
+      return NextResponse.json({ error: error.message }, { status: 400 });
     }
+
+    console.log("Email sent successfully:", data);
+    return NextResponse.json({ success: true });
+  } catch (err) {
+    console.error("Unexpected error in contact API:", err);
+    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+  }
 }
