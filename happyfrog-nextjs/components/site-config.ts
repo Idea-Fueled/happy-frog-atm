@@ -10,8 +10,8 @@ export const siteConfig = {
     tel: 'tel:8338188778',
   },
   email: {
-    display: 'kmckinley@happyfrogatm.com',
-    mailto: 'mailto:kmckinley@happyfrogatm.com',
+    display: 'CASH@HappyFrogATM.com',
+    mailto: 'mailto:CASH@HappyFrogATM.com',
   },
   // Replace with the real booking URL (Calendly, Cal.com, Google Calendar, HubSpot, etc.)
   scheduleUrl: 'https://calendly.com/happyfrog-atm/intro-call',

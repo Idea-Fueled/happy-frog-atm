@@ -96,7 +96,7 @@ export default function ContactForm() {
           <div className="frow">
             <div className="ff">
               <label htmlFor="phone">Phone Number</label>
-              <input id="phone" name="phone" type="tel" required />
+              <input id="phone" name="phone" type="number" required />
             </div>
             <div className="ff">
               <label htmlFor="email">Email Address</label>
