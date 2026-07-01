@@ -23,7 +23,7 @@ export async function POST(req: Request) {
       // You cannot send from arbitrary domains (like gmail.com) until you verify ownership of that domain.
       from: 'onboarding@resend.dev',
       to: 'anirudhj545@gmail.com', // Must be the email address you signed up to Resend with
-      subject: `🐸 Website New Lead: Happy Frog`,
+      subject: `New Lead Submission | Happy Frog ATM Website`,
       html: `
               <!DOCTYPE html>
               <html>
