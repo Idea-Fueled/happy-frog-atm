@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Barlow_Condensed } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 // next/font handles Google Fonts at build time — zero CLS, no FOUT, no network call from the browser
@@ -63,7 +64,10 @@ export const viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${barlow.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
